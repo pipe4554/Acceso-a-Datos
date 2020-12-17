@@ -34,6 +34,7 @@ public class Main {
 			} catch (Exception e) {
 				// TODO: handle exception
 			}
+			
 
 		}
 
@@ -54,11 +55,43 @@ public class Main {
 		while (opcion != 0) {
 			try {
 				opcion = kb.nextInt();
+				switch (opcion) {
+				case 1:addClient();break;
+				case 2:showClient();break;
+				case 3:showAllClients();break;
+				case 4:searchClient();break;
+				case 5:editProduct();break;
+
+				default:break;
+				}
+				
 			} catch (Exception e) {
 				System.out.println("Has introducido un valor incorrecto");
 			}
 		}
 
+	}
+	
+	public void addClient() {
+		//añadir un cliente
+		System.out.println("Introduzca los datos del cliente");
+		
+	}
+	
+	public void showClient() {
+		//mostrar un cliente determinado
+	}
+	
+	public void showAllClients() {
+		//mostrar todos los clientes de la lista clientes
+	}
+	
+	public void searchClient() {
+		//buscar un cliente de la tabla clientes
+	}
+	
+	public void editProduct() {
+		//Editar un producto 
 	}
 
 }
