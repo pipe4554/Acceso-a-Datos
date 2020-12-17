@@ -1,6 +1,7 @@
 package Practica2;
 
 public class Cliente {
+	
 	private int codigo_cliente;
 	private String nombre;
 	private String nombre_contacto;
