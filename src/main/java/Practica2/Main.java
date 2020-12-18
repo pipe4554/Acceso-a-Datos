@@ -22,7 +22,6 @@ public class Main {
 
 			try {
 				statement = connection.createStatement();
-				System.out.println("statement");
 
 			} catch (SQLException e) {
 				System.out.println("La conexion esta cerrada");
@@ -31,7 +30,6 @@ public class Main {
 
 			try {
 				ResultSet resultSet = statement.executeQuery("select * from empleado");
-				System.out.println("Result set");
 
 				while (resultSet.next()) {
 					String codigoEmpleado = resultSet.getString("codigo_empleado");
@@ -83,7 +81,7 @@ public class Main {
 					editProduct();
 					break;
 				case 0:
-					System.out.println("cerrando el programa");
+					System.out.println("Cerrando el programa");
 					System.exit(0);
 				default:
 					System.out.println("El valor no coincide con las opciones dadas");
@@ -222,7 +220,7 @@ public class Main {
 
 	public static void showAllClients() {
 		
-		// --------------------------------------------------------------------- mostrar todos los clientes de la lista clientes 
+		// ---------------------------------------------- mostrar todos los clientes de la lista clientes 
 
 		System.out.println("Mostrando todos los clientes.\n-----------------------------");
 		// SELECT * FROM cliente
@@ -260,7 +258,7 @@ public class Main {
 		
 		nombre_cliente = kb.nextLine();
 		
-		String sentenciaSql = "SELECT * FROM cliente WHERE nombre_cliente LIKE '%"+nombre_cliente+"%'";
+		String sentenciaSql = "SELECT * FROM cliente WHERE nombre_cliente LIKE '%" + nombre_cliente + "%'";
 		PreparedStatement sentencia = null;
 		ResultSet resultado = null;
 
@@ -271,15 +269,17 @@ public class Main {
 			while (resultado.next()) {
 				printCliente(resultado);
 			}
-		} catch (SQLException sqle) {
-			sqle.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("Ha ocurrido un fallo en el programa");
+			e.printStackTrace();
 		} finally {
 			if (sentencia != null)
 				try {
 					sentencia.close();
 					resultado.close();
-				} catch (SQLException sqle) {
-					sqle.printStackTrace();
+				} catch (Exception e) {
+					System.out.println("Ha ocurrido un fallo en el programa");
+					e.printStackTrace();
 				}
 		}
 
@@ -336,8 +336,9 @@ public class Main {
 			if (sentencia != null)
 				try {
 					sentencia.close();
-				} catch (SQLException sqle) {
-					sqle.printStackTrace();
+				} catch (Exception e) {
+					System.out.println("Ha ocurrido un fallo en el programa");
+					e.printStackTrace();
 				}
 		}
 
